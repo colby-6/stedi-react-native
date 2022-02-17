@@ -9,10 +9,11 @@ function Setting() {
       <View>
       <Button
       title="Log In"
-      onPress={() => Alert.alert('Simple Button pressed')}
+      onPress={() => console.log('Simple Button pressed')}
+      
     />
       </View>
     )
   }
-
+  
 export default Setting;
