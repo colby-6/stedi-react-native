@@ -56,7 +56,7 @@ export default function App() {
         />
         <Tab.Screen
           name='login'
-          component={login}
+          component={Login}
           options={{
             tabBarLabel: 'login',
             tabBarIcon: ({ color }) => (
@@ -70,7 +70,7 @@ export default function App() {
 
 
 }else{
-  return (<Login/>);
+  return (<Login setUserLoggedIn={setUserLoggedIn}/>);
 }
 } 
 
