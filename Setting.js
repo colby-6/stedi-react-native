@@ -11,7 +11,6 @@ function Setting() {
       title="Log In"
       onPress={() => console.log('Simple Button pressed')}
       
-      
     />
       </View>
     )
