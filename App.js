@@ -24,9 +24,9 @@ export default function App() {
         activeColor='white'
         barStyle={{ backgroundColor: 'green' }}
       >
-        <Tab.Screen
+       <Tab.Screen
           name='Home'
-          component={Home}
+          children={()=><Home setUserEmail={setUserEmail} />}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
