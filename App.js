@@ -9,15 +9,15 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Login from './Login';
+
 // import Icons from "./Icons";
 const Tab = createMaterialBottomTabNavigator();
 
-export default function App() {
+export default function App() { //()props
+const [userLoggedIn, setUserLoggedIn] = useState(false); //change userloggedin to become True when it happens
+const [user_email, setUserEmail] = useState("")
+if(userLoggedIn){
 
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
-  const [UserEmail, setUserEmail] = useState("")
-
-  if (userLoggedIn){
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -25,9 +25,9 @@ export default function App() {
         activeColor='white'
         barStyle={{ backgroundColor: 'green' }}
       >
-       <Tab.Screen
+        <Tab.Screen
           name='Home'
-          children={()=><Home UserEmail={UserEmail} />}
+          children = {()=><Home user_email={user_email}/>}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
@@ -47,7 +47,7 @@ export default function App() {
         />
         <Tab.Screen
           name='Settings'
-          component={SettingsScreen}
+          children={()=><SettingsScreen email={user_email}/>}
           options={{
             tabBarLabel: 'Settings',
             tabBarIcon: ({ color }) => (
@@ -55,7 +55,7 @@ export default function App() {
             ),
           }}
         />
-        <Tab.Screen
+         {/* <Tab.Screen
           name='login'
           component={Login}
           options={{
@@ -64,16 +64,18 @@ export default function App() {
               <FontAwesome name='gear' color={color} size={26} />
             ),
           }}
-        />
+/> */}
+
       </Tab.Navigator>
     </NavigationContainer>
   );
 
 
 }else{
-  return (<Login setUserLoggedIn={setUserLoggedIn} setUserEmail ={setUserEmail}/>);
+  return (<Login setUserLoggedIn={setUserLoggedIn} setUserEmail={setUserEmail}/>)
 }
 } 
+
 
 const styles = StyleSheet.create({
   

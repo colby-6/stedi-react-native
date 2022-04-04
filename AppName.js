@@ -4,7 +4,8 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 function AppName(props) {
     return (
       <View style={styles.appName}>
-        <Text style={styles.text}>Welcome {props.name} to STEDI Balance</Text>
+        <Text style={styles.text}>Welcome {props.name}STEDI Balance</Text>
+        
       </View>
     );
   }
